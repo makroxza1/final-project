@@ -16,6 +16,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography'
 import CustomizedDialogs from './components/dialog'
 import { MuiChipsInput } from 'mui-chips-input'
+import sections from './components/sections'
+import parameters_name_type from './components/parameter_name' 
 import {
   createTheme,
   responsiveFontSizes,
@@ -40,31 +42,6 @@ let theme = createTheme({
 });
 theme = responsiveFontSizes(theme);
 
-export const sections = [
-  { name: "ดินขุดดินถม", funcName: "cutandfill", heading: "", subtitle: "" },
-  { name: "ทรายหยาบ", funcName: "coarsesand", heading: "", subtitle: "" },
-  { name: "คอนกรีตหยาบ", funcName: "roughconcrete", heading: "", subtitle: "" },
-  { name: "คอนกรีตโครงสร้าง", funcName: "structuralconcrete", heading: "", subtitle: "" },
-  { name: "คอนกรีตเสาหลัก", funcName: "concretegroundColumn_main", heading: "", subtitle: "" },
-  { name: "ปริมาณคอนกรีตเสาหลัก", funcName: "concretequantity_main", heading: "", subtitle: "" },
-  { name: "ไม้แบบเสาหลัก", funcName: "Shutterboardscolunm_main", heading: "", subtitle: "" },
-  { name: "คอนกรีตเสา", funcName: "concretegroundColumn", heading: "", subtitle: "" },
-  { name: "ปริมาณคอนกรีต", funcName: "concretequantity", heading: "", subtitle: "" },
-  { name: "ไม้แบบเสา", funcName: "Shutterboardscolunm", heading: "", subtitle: "" },
-  { name: "คอนกรีตคาน", funcName: "concreatebeam", heading: "", subtitle: "" },
-  { name: "ไม้แบบคาน", funcName: "Shutterboardsbeam", heading: "", subtitle: "" },
-  { name: "พื้น S", funcName: "floor_S", heading: "", subtitle: "" },
-  { name: "พื้น PS", funcName: "floor_PS", heading: "", subtitle: "" },
-  { name: "หาความลาดเอียงหลังคา", funcName: "getAngleDeg", heading: "", subtitle: "" },
-  { name: "หลังคาทรงปั้นหยา", funcName: "hipped_roof", heading: "", subtitle: "" },
-  { name: "เหล็กปลอกฐานราก", funcName: "Stirrup_factor", heading: "", subtitle: "" },
-  { name: "เหล็กฐานราก", funcName: "iron_factor", heading: "", subtitle: "" },
-  { name: "เสาตอม่อ", funcName: "stanchion", heading: "", subtitle: "" },
-  { name: "เหล็กปลอกเสาตอม่อ", funcName: "Stirrup_stanchion", heading: "", subtitle: "" },
-  { name: "เหล็กเสาตอม่อหลัก", funcName: "iron_colunm", heading: "", subtitle: "" },
-  { name: "เหล็กคาน", funcName: "iron_beam", heading: "", subtitle: "" },
-  { name: "เหล็กปลอกคาน", funcName: "iron_beam_caszing", heading: "", subtitle: "" },
-]
 
 function App() {
   const [sectionSelect, setSectionSelect] = useState("selectSection")
@@ -83,14 +60,16 @@ function App() {
     setDescription({ heading: value.heading, subtitle: value.subtitle })
     setSectionSelect(select)
     setFuncName(value.funcName)
-    setInputOptions(getArgs(callFunction[value.funcName]).map(argsName => {
-      if (["length_beam", "ad_db", "amount_post_per", "amount_post", "amountlorpor", "iron_factor","amount_iron_beam"].includes(argsName)) {
-        console.log(argsName)
-        return { name: argsName, value: [] }
-      } else {
-        return { name: argsName, value: 0 }
-      }
-    }))
+    setInputOptions(()=>{
+      let funcChoose = parameters_name_type.find(parameter=>parameter.funcName === value.funcName)
+      return funcChoose.parameter_name.map(parameter => {
+        if (["length_beam", "ad_db", "amount_post_per", "amount_post", "amountlorpor", "iron_factor","amount_iron_beam"].includes(parameter)) {
+          return { name: parameter, value: [] }
+        } else {
+          return { name: parameter, value: 0 }
+        }
+      })
+    })
   }
 
   const handleFromInputsChangeArray = index => (newChips) => {
