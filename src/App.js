@@ -189,10 +189,12 @@ function App() {
                                   color='secondary'
                                   sx={{ width: "100%", marginTop: "10px" }}
                                   focused
+                                  required
                                 />
                               } else {
                                 return <TextField
                                   focused
+                                  required
                                   onChange={handleFromInputsChange(index)}
                                   value={inputOption[index].value}
                                   label={`Please input ${input.name.toUpperCase()}`}
