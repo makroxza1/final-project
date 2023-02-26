@@ -6,7 +6,7 @@ function financial(x) {
 class CallFunction {
 
     //คำนวนดินขุด ดินถม
-    cutandfill(manyfoundation, wide, deep, long) {
+    cutandfill(manyfoundation, wide, long, deep) {
         let result = []
         let error = null
         if (manyfoundation !== 0) {
@@ -582,13 +582,13 @@ class CallFunction {
                 //อะเส Tie-beam 
                 if (sum_roof_all !== 0) {
                     if (tiebeam !== 0) {
-                        result.push("หาความยาว อะเส ...")
+                        //result.push("หาความยาว อะเส ...")
 
                         if (tiebeam_size === 1) {
-                            const count_tiebeam = (tiebeam)
+                            //const count_tiebeam = (tiebeam)
                             result.push("ความยาว อะเส : " + (financial(tiebeam * 1.05)))
                         } else if (tiebeam_size === 2) {
-                            const count_tiebeam = (tiebeam)
+                            //const count_tiebeam = (tiebeam)
                             result.push("ความยาว อะเส : " + (financial(tiebeam * 2 * 1.05)))
                         }
 
@@ -1175,7 +1175,7 @@ class CallFunction {
         }
     }
     //เหล็กปลอกคาน
-    iron_beam_caszing(iron_factor, length_beam, ad, wide_beam1) {
+    iron_beam_caszing(iron_factor, length_beam, ad, wide_beam1/*,lorpor,amountlorpor*/) {
         let result = []
         let error = null
         // let iron_factor = ['DB16']

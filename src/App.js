@@ -63,7 +63,7 @@ function App() {
     setInputOptions(()=>{
       let funcChoose = parameters_name_type.find(parameter=>parameter.funcName === value.funcName)
       return funcChoose.parameter_name.map(parameter => {
-        if (["length_beam", "ad_db", "amount_post_per", "amount_post", "amountlorpor", "iron_factor","amount_iron_beam"].includes(parameter)) {
+        if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/, "ประเภทของเหล็ก","จำนวนเหล็กคาน"].includes(parameter)) {
           return { name: parameter, value: [] }
         } else {
           return { name: parameter, value: 0 }
@@ -90,9 +90,9 @@ function App() {
   const handleSubmitCalulate = (e) => {
     e.preventDefault();
     let input = inputOption.map((input) => {
-      if (input.name === "iron_factor") {
+      if (input.name === "ประเภทของเหล็ก") {
         return input.value
-      } else if (["length_beam", "ad_db", "amount_post_per", "amount_post", "amountlorpor","amount_iron_beam"].includes(input.name)) {
+      } else if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/,"จำนวนเหล็กคาน"].includes(input.name)) {
         return input.value.map(v => parseFloat(v))
       } else {
         return parseFloat(input.value)
@@ -180,16 +180,17 @@ function App() {
                         <Box component="form" variant="standard" onSubmit={handleSubmitCalulate} sx={{ width: "100%", height: "100%" }}>
                           <Grid item mt={2} xs={12}>
                             {inputOption.map((input, index) => {
-                              if (["length_beam", "ad_db", "amount_post_per", "amount_post", "amountlorpor", "iron_factor", "amount_iron_beam"].includes(input.name)) {
+                              if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง",/*"เหล็กปลอก","จำนวนเหล็กปลอก",*/"ประเภทของเหล็ก", "จำนวนเหล็กคาน"].includes(input.name)) {
                                 return <MuiChipsInput
-                                  label={`Please input ${input.name.toUpperCase()}`}
+                                  label={`โปรดกรอกค่า ${input.name}`}
+                                  placeholder={`โปรดกรอก ${input.name} แล้วกด Enter เพื่อยืนยัน`}
                                   key={index}
                                   value={inputOption[index].value}
                                   onChange={handleFromInputsChangeArray(index)}
                                   color='secondary'
                                   sx={{ width: "100%", marginTop: "10px" }}
                                   focused
-                                  required
+                                  //required
                                 />
                               } else {
                                 return <TextField
@@ -197,8 +198,8 @@ function App() {
                                   required
                                   onChange={handleFromInputsChange(index)}
                                   value={inputOption[index].value}
-                                  label={`Please input ${input.name.toUpperCase()}`}
-                                  placeholder={`Please input ${input.name.toUpperCase()}`}
+                                  label={`โปรดกรอก ${input.name}`}
+                                  placeholder={`โปรดกรอก ${input.name}`}
                                   name={input.name}
                                   id={input.name}
                                   key={input.name}
