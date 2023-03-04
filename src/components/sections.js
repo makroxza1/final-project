@@ -50,7 +50,7 @@ const sections = [
     { name: "เหล็กเสาตอม่อหลัก", funcName: "iron_colunm", heading: "การคำนวณเหล็กเสาตอม่อหลัก", subtitle: "" },
     { name: "เหล็กคาน", funcName: "iron_beam", heading: "การคำนวณเหล็กคาน", subtitle: "" },
     { name: "เหล็กปลอกคาน", funcName: "iron_beam_caszing", heading: "การคำนวณเหล็กปลอกคาน", subtitle: "" },
-    { name: "พื้น", funcName: "slap", heading: "การคำนวณพื้น", subtitle: "" },
+    { name: "เหล็กพื้น", funcName: "slap", heading: "การคำนวณเหล็กพื้นพื้น", subtitle: "" },
   ]
 
   export default sections

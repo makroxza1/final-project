@@ -532,10 +532,12 @@ class CallFunction {
         }
     }
     // หาความลาดเอียงหลังคา
-    getAngleDeg(ax, ay, bx, by) {
+    //ay = ความสูงดั้ง
+
+    getAngleDeg(ax,ay) {
         let result = []
         let error = null
-        var angleRad = Math.atan((ay - by) / (ax - bx));
+        var angleRad = Math.atan((ay)/(ay));
         var angleDeg = angleRad * 180 / Math.PI;
 
         return {
