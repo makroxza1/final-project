@@ -17,12 +17,14 @@ import Typography from '@mui/material/Typography'
 import CustomizedDialogs from './components/dialog'
 import { MuiChipsInput } from 'mui-chips-input'
 import sections from './components/sections'
-import parameters_name_type from './components/parameter_name' 
+import parameters_name_type from './components/parameter_name'
+import CardMedia from '@mui/material/CardMedia';
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles';
+import ImgFile from './components/FindImages';
 
 let theme = createTheme({
   palette: {
@@ -60,10 +62,10 @@ function App() {
     setDescription({ heading: value.heading, subtitle: value.subtitle })
     setSectionSelect(select)
     setFuncName(value.funcName)
-    setInputOptions(()=>{
-      let funcChoose = parameters_name_type.find(parameter=>parameter.funcName === value.funcName)
+    setInputOptions(() => {
+      let funcChoose = parameters_name_type.find(parameter => parameter.funcName === value.funcName)
       return funcChoose.parameter_name.map(parameter => {
-        if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/, "ประเภทของเหล็ก","จำนวนเหล็กคาน"].includes(parameter)) {
+        if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/, "ประเภทของเหล็ก", "จำนวนเหล็กคาน"].includes(parameter)) {
           return { name: parameter, value: [] }
         } else {
           return { name: parameter, value: 0 }
@@ -92,7 +94,7 @@ function App() {
     let input = inputOption.map((input) => {
       if (input.name === "ประเภทของเหล็ก") {
         return input.value
-      } else if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/,"จำนวนเหล็กคาน"].includes(input.name)) {
+      } else if (["ความยาวคาน", "ระยะ@", "จำนวนดั้ง", "ความสูงดั้ง"/*,"เหล็กปลอก","จำนวนเหล็กปลอก"*/, "จำนวนเหล็กคาน"].includes(input.name)) {
         return input.value.map(v => parseFloat(v))
       } else {
         return parseFloat(input.value)
@@ -133,7 +135,6 @@ function App() {
                   <Grid container spacing={{ xs: 2, md: 3 }}>
                     <Grid item mt={2} xs={12} sm={12} md={6}>
                       <Box sx={{ borderRadius: "5%", border: "2px solid #fb8c00", minHeight: "300px", width: "100%", bgcolor: "#fb8c00" }}>
-
                         <Typography variant="h4" mt={2} mb={2} sx={{ textAlign: "center", width: "100%", color: "#fffde7", fontWeight: "bold" }}>
                           วิธีคำนวนราคาโครงสร้าง
                         </Typography>
@@ -145,14 +146,10 @@ function App() {
                             `
                           โปรเจ็คนี้สร้างขึ้นเพื่ออำนวยความสะดวกแก่... 
                           เพื่อเพิ่มความเร็วและง่ายต่อการคำนวนเราจึง...
-                          วิธีใส่ค่าในแต่ละช่อง                          
-                          Manyfoundation : bra bra bra
-                          Wide : bra bra bra
-                          Deep : bra bra bra
-                          Long : bra bra bra
+                          วิธีใส่ค่าในแต่ละช่อง     
                           `}
                         </Typography>
-
+                        <ImgFile />
                       </Box>
                     </Grid>
                     <Grid item mt={2} xs={12} sm={12} md={6}>
@@ -190,7 +187,7 @@ function App() {
                                   color='secondary'
                                   sx={{ width: "100%", marginTop: "10px" }}
                                   focused
-                                  //required
+                                //required
                                 />
                               } else {
                                 return <TextField
