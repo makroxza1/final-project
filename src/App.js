@@ -49,7 +49,7 @@ function App() {
   const [sectionSelect, setSectionSelect] = useState("selectSection")
   const [inputOption, setInputOptions] = useState([])
   const [description, setDescription] = useState()
-  const [funcName, setFuncName] = useState("")
+  const [funcName, setFuncName] = useState()
   const [answer, setAnswer] = useState([])
   const [openAnswerDialog, setOpenAnswerDialog] = useState(false)
   const callFunction = new CallFunction()
@@ -149,7 +149,10 @@ function App() {
                           วิธีใส่ค่าในแต่ละช่อง     
                           `}
                         </Typography>
-                        <ImgFile />
+                        {funcName || "" ?
+                          <ImgFile funcName={funcName} />
+                          : ""
+                        }
                       </Box>
                     </Grid>
                     <Grid item mt={2} xs={12} sm={12} md={6}>

@@ -3,9 +3,10 @@ import { CardMedia, Button } from '@mui/material'
 import Dialog from '@mui/material/Dialog';
 import React from 'react';
 
-const ImgFile = (key) => {
-  const name = (image()).find(img => img.key === "123")
-  const [open, setOpen] = React.useState()
+const ImgFile = (props) => {
+  const { funcName } = props
+  const findIMG = (image()).find(img => img.key === funcName)
+  const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -14,29 +15,34 @@ const ImgFile = (key) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <>
-      <Button onClick={handleClickOpen}>
-        <CardMedia
-          component="img"
-          height="300"
-          image={name.img}
-          title={name.key}
-          sx={{ objectFit: "contain" }}
-        />
-      </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
-        <CardMedia
-          component="img"
-          height="auto"
-          image={name.img}
-          title={name.key}
-          sx={{ objectFit: "contain" }}
-        />
-      </Dialog>
+      {findIMG &&
+        <>
+          <Button onClick={handleClickOpen}>
+            <CardMedia
+              component="img"
+              height="300"
+              image={findIMG.img}
+              title={findIMG.key}
+              sx={{ objectFit: "contain" }}
+            />
+          </Button>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+          >
+            <CardMedia
+              component="img"
+              height="auto"
+              image={findIMG.img}
+              title={findIMG.key}
+              sx={{ objectFit: "contain" }}
+            />
+          </Dialog>
+        </>
+      }
     </>
   )
 }
