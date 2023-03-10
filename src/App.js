@@ -136,17 +136,15 @@ function App() {
                     <Grid item mt={2} xs={12} sm={12} md={6}>
                       <Box sx={{ borderRadius: "5%", border: "2px solid #fb8c00", minHeight: "300px", width: "100%", bgcolor: "#fb8c00" }}>
                         <Typography variant="h4" mt={2} mb={2} sx={{ textAlign: "center", width: "100%", color: "#fffde7", fontWeight: "bold" }}>
-                          วิธีคำนวนราคาโครงสร้าง
+                          วิธีคำนวณราคาโครงสร้าง
                         </Typography>
                         <Typography variant="h6" sx={{ textAlign: "center", width: "100%", color: "#fff9c4", paddingX: "1rem" }} gutterBottom>
-                          {description ? description.heading : "โปรดเลือกสูตรคำนวนที่คุณต้องการก่อน"}
+                          {description ? description.heading : "โปรดเลือกสูตรคำนวณที่คุณต้องการก่อน"}
                         </Typography>
                         <Typography variant="subtitle1" style={{ whiteSpace: 'pre-line' }} sx={{ textAlign: "center", width: "100%", color: "#fff3e0", paddingX: "1rem", mb: "1rem" }}>
                           {description ? description.subtitle :
                             `
-                          โปรเจ็คนี้สร้างขึ้นเพื่ออำนวยความสะดวกแก่... 
-                          เพื่อเพิ่มความเร็วและง่ายต่อการคำนวนเราจึง...
-                          วิธีใส่ค่าในแต่ละช่อง     
+                               
                           `}
                         </Typography>
                         {funcName || "" ?
@@ -157,7 +155,7 @@ function App() {
                     </Grid>
                     <Grid item mt={2} xs={12} sm={12} md={6}>
                       <FormControl sx={{ width: "100%", marginTop: "10px" }}>
-                        <InputLabel color='secondary'>เลือกสิ่งที่คุณต้องการคำนวน</InputLabel>
+                        <InputLabel color='secondary'>เลือกสิ่งที่คุณต้องการคำนวณ</InputLabel>
                         <Select
                           autoFocus
                           required
@@ -166,10 +164,10 @@ function App() {
                           color='secondary'
                           onChange={handleSelectSection}
                           value={sectionSelect === "" ? "" : sectionSelect}
-                          label="เลือกสิ่งที่คุณต้องการคำนวน"
+                          label="เลือกสิ่งที่คุณต้องการคำนวณ"
                         >
                           <MenuItem key="selectSection" value="selectSection" disabled>
-                            {`--------- เลือกสิ่งที่คุณต้องการคำนวน ---------`}
+                            {`--------- เลือกสิ่งที่คุณต้องการคำนวณ ---------`}
                           </MenuItem>
                           {sections.map((data, index) => {
                             return <MenuItem key={`${index}`} value={data.name} name={`${data.name}`}>{`${index + 1}. ${data.name}`}</MenuItem>
@@ -210,7 +208,7 @@ function App() {
                             })}
                           </Grid>
                           <Grid item mt={2} xs={12}>
-                            <Button variant="contained" type="submit" color='secondary' sx={{ width: "100%", marginTop: "20px" }} name="btnSubmit">คำนวนผลลัพธ์</Button>
+                            <Button variant="contained" type="submit" color='secondary' sx={{ width: "100%", marginTop: "20px" }} name="btnSubmit">คำนวณผลลัพธ์</Button>
                           </Grid>
                         </Box>
                       }

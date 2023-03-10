@@ -1,36 +1,36 @@
 
 const sections = [
-    { name: "ดินขุดดินถม", funcName: "cutandfill", heading: "การคำนวณดินขุด-ดินถมกลับคืน", subtitle: `สูตรที่ใช้ในการคำนวณ มีดังนี้ 
+    { name: "ดินขุดดินถม", funcName: "cutandfill", heading: "การคำนวณดินขุด-ดินถมกลับคืน", subtitle: ""/*`สูตรที่ใช้ในการคำนวณ มีดังนี้ 
     1.กรอกจำนวนฐานราก
     2.กรอกความกว้างฐานราก
     3.กรอกความยาวฐานราก
     4.กรอกความลึกฐานราก
-    ` },
-    { name: "ทรายหยาบ", funcName: "coarsesand", heading: "การคำนวณทรายหยาบ", subtitle: `
+`*/ },
+    { name: "ทรายหยาบ", funcName: "coarsesand", heading: "การคำนวณทรายหยาบ", subtitle: ""/*`
     1.กรอกจำนวนฐานราก
     2.กรอกความกว้างฐานราก
     3.กรอกความยาวฐานราก
     4.กรอกความลึกฐานราก
-    ` },
-    { name: "คอนกรีตหยาบ", funcName: "roughconcrete", heading: "การคำนวณคอนกรีตหยาบ", subtitle: `
+`*/ },
+    { name: "คอนกรีตหยาบ", funcName: "roughconcrete", heading: "การคำนวณคอนกรีตหยาบ", subtitle: ""/*`
     1.กรอกจำนวนฐานราก
     2.กรอกความกว้างฐานราก
     3.กรอกความยาวฐานราก
     4.กรอกความลึกฐานราก
-    `},
-    { name: "คอนกรีตโครงสร้าง", funcName: "structuralconcrete", heading: "การคำนวณคอนกรีตโครงสร้าง", subtitle: `
+`*/},
+    { name: "คอนกรีตโครงสร้าง", funcName: "structuralconcrete", heading: "การคำนวณคอนกรีตโครงสร้าง", subtitle: ""/*`
     1.กรอกจำนวนฐานราก
     2.กรอกความกว้างฐานราก
     3.กรอกความยาวฐานราก
     4.กรอกความลึกฐานราก
-    ` },
-    { name: "ไม้แบบ", funcName: "Shutterboards", heading: "การคำนวณไม้แบบ", subtitle: `
+`*/ },
+    { name: "ไม้แบบ", funcName: "Shutterboards", heading: "การคำนวณไม้แบบ", subtitle: ""/*`
     1.กรอกจำนวนฐานราก
     2.กรอกความกว้างฐานราก
     3.กรอกความยาวฐานราก
     4.กรอกความลึกฐานราก
     5.จำนวนชั้นของบ้าน
-    ` },
+`*/ },
     { name: "คอนกรีตเสาหลัก", funcName: "concretegroundColumn_main", heading: "การคำนวณคอนกรีตเสาหลัก", subtitle: "" },
     { name: "ปริมาณคอนกรีตเสาหลัก", funcName: "concretequantity_main", heading: "การคำนวณปริมาณคอนกรีตเสาหลัก", subtitle: "" },
     { name: "ไม้แบบเสาหลัก", funcName: "Shutterboardscolunm_main", heading: "การคำนวณไม้แบบเสาหลัก", subtitle: "" },
